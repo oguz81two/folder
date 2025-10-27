@@ -82,20 +82,22 @@ nav.top-bar {
     padding: 12px 20px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px; /* Reduced gap for tighter horizontal layout */
     box-shadow: var(--shadow);
     position: sticky;
     top: 70px;
     z-index: 999;
+    flex-direction: row; /* Ensure horizontal layout */
+    flex-wrap: wrap; /* Allow wrapping if needed, but keep horizontal */
 }
 
 nav.top-bar a {
     color: var(--text-color);
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem; /* Larger font for bigger buttons */
     font-weight: 500;
-    padding: 10px 20px;
+    padding: 12px 24px; /* More padding for larger buttons */
     border-radius: var(--border-radius);
     transition: transform var(--transition-speed), background var(--transition-speed), box-shadow var(--transition-speed);
     position: relative;
@@ -300,8 +302,17 @@ select:focus {
 
 @media (max-width: 600px) {
     .header-title { font-size: 2.2rem; }
-    nav.top-bar { flex-direction: column; gap: 15px; top: 58px; }
-    nav.top-bar a { font-size: 1.2rem; padding: 8px 15px; }
+    nav.top-bar {
+        flex-direction: row; /* Keep horizontal */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        gap: 10px; /* Smaller gap for mobile */
+        top: 58px;
+        padding: 10px;
+    }
+    nav.top-bar a {
+        font-size: 1.3rem; /* Slightly smaller but still readable */
+        padding: 8px 16px; /* Adjusted for mobile */
+    }
     h1 { font-size: 2.2rem; }
     h2 { font-size: 1.8rem; }
     p, ul { font-size: 1rem; }

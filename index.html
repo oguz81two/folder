@@ -5,7 +5,318 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OguzHan Can</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;500;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #0288D1; /* Main blue for gradient */
+            --secondary-color: #01579B; /* Darker blue for gradient and header */
+            --text-color: #F5F5F5; /* Light text */
+            --card-bg: rgba(255,255,255,0.15); /* Glassmorphism card background */
+            --shadow: 0 8px 20px rgba(0,0,0,0.3); /* Card shadow */
+            --border-radius: 12px; /* Rounded corners */
+            --button-gradient: linear-gradient(135deg, #03A9F4, #01579B); /* Button gradient */
+            --glow-color: #40C4FF; /* Glow effect for buttons and text */
+            --transition-speed: 0.4s; /* Animation speed */
+            --modal-bg: rgba(1,87,155,0.95); /* Modal backdrop */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            font-family: 'Poppins', Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--glow-color);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: float 8s infinite ease-in-out;
+            box-shadow: 0 0 8px var(--glow-color);
+        }
+
+        .particle:nth-child(odd) {
+            background: #FFCA28; /* Yellow particles */
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+            25% { transform: translate(10px, -15px); opacity: 0.7; }
+            50% { transform: translate(-10px, 10px); opacity: 0.5; }
+            75% { transform: translate(5px, -10px); opacity: 0.6; }
+        }
+
+        header {
+            background: var(--secondary-color);
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .header-title {
+            font-family: 'Amiri', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 0 0 12px var(--glow-color);
+            animation: glowText 2s infinite alternate;
+        }
+
+        nav.top-bar {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 70px;
+            z-index: 999;
+        }
+
+        nav.top-bar a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            transition: transform var(--transition-speed), background var(--transition-speed), box-shadow var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav.top-bar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--glow-color);
+            transform: scaleX(0);
+            transition: transform var(--transition-speed);
+        }
+
+        nav.top-bar a:hover::after {
+            transform: scaleX(1);
+        }
+
+        nav.top-bar a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 0 16px var(--glow-color);
+        }
+
+        nav.top-bar a:active {
+            animation: glowPulse 0.3s ease-out;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        h1 {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px var(--glow-color);
+            animation: textScale 1.8s infinite alternate;
+        }
+
+        h2 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            text-shadow: 0 0 6px var(--glow-color);
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            text-align: left;
+            margin: 20px auto;
+            max-width: 450px;
+        }
+
+        button {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            padding: 15px 30px;
+            background: var(--button-gradient);
+            border: none;
+            color: var(--text-color);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: 0 0 10px var(--glow-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        button:hover::after {
+            left: 100%;
+        }
+
+        button:hover {
+            transform: scale(1.12);
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+
+        button:active {
+            animation: glowPulse 0.3s ease-out;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--modal-bg);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            max-width: 400px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--glow-color);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        select {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            padding: 12px;
+            margin: 15px 0;
+            background: #FFFFFF;
+            color: #212121;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: var(--border-radius);
+            width: 100%;
+            cursor: pointer;
+            transition: box-shadow var(--transition-speed);
+        }
+
+        select option {
+            background: #FFFFFF;
+            color: #212121;
+        }
+
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes textScale {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        @keyframes glowText {
+            from { text-shadow: 0 0 8px var(--glow-color); }
+            to { text-shadow: 0 0 14px var(--glow-color); }
+        }
+
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 0 var(--glow-color); }
+            50% { box-shadow: 0 0 20px var(--glow-color); }
+            100% { box-shadow: 0 0 0 var(--glow-color); }
+        }
+
+        @media (max-width: 600px) {
+            .header-title { font-size: 2.2rem; }
+            nav.top-bar { flex-direction: column; gap: 15px; top: 58px; }
+            nav.top-bar a { font-size: 1.2rem; padding: 8px 15px; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            p, ul { font-size: 1rem; }
+            button, select { font-size: 1.1rem; padding: 12px; }
+            .modal-content { max-width: 90%; }
+        }
+    </style>
 </head>
 <body>
     <div id="particles"></div>
@@ -55,6 +366,199 @@
             <button onclick="closeModal('settingsModal')" data-i18n="closeButton">Close</button>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const translations = {
+            en: {
+                headerTitle: 'OguzHan Can',
+                navHome: 'Home',
+                navContact: 'Contact',
+                navSettings: 'Settings',
+                homeTitle: 'Hello!',
+                homeDesc1: 'I\'m OguzHan, a 16-year-old web developer from Skedsmokorset, Norway.',
+                homeDesc2: 'Specializing in vibrant, professional websites using HTML, CSS, and JavaScript.',
+                homeDesc3: 'Hire me for stunning UI/UX designs at $40 per project!',
+                hireButton: 'Hire Me',
+                hireAlert: 'Email me at oguzsjef7@gmail.com to hire!',
+                contactTitle: 'Contact Me',
+                contactSub: 'Get in Touch',
+                contactDesc: 'Available for freelance web design and front-end development.',
+                sendButton: 'Send Message',
+                sendAlert: 'Email me at oguzsjef7@gmail.com to start your project!',
+                limitationsSub: 'Current Limitations',
+                limitationsDesc: 'I specialize in front-end development and UI/UX design. Currently, I don’t offer:',
+                limitation1: 'Backend development (e.g., databases, servers)',
+                limitation2: 'Mobile app development',
+                limitation3: 'Complex animations beyond CSS/JavaScript',
+                limitationsNote: 'Working to master these skills soon!',
+                settingsTitle: 'Settings',
+                languageLabel: 'Language',
+                closeButton: 'Close'
+            },
+            ar: {
+                headerTitle: 'أوغوزهان جان',
+                navHome: 'الرئيسية',
+                navContact: 'اتصل',
+                navSettings: 'الإعدادات',
+                homeTitle: 'مرحبًا!',
+                homeDesc1: 'أنا أوغوزهان، مطور ويب يبلغ من العمر 16 عامًا من سكيدسموكورست، النرويج.',
+                homeDesc2: 'متخصص في تصميم مواقع ويب نابضة بالحياة واحترافية باستخدام HTML وCSS وJavaScript.',
+                homeDesc3: 'استأجرني لتصميمات واجهة مستخدم/تجربة مستخدم مذهلة بـ 40 دولار لكل مشروع!',
+                hireButton: 'استأجرني',
+                hireAlert: 'راسلني عبر البريد الإلكتروني oguzsjef7@gmail.com لتوظيفي!',
+                contactTitle: 'اتصل بي',
+                contactSub: 'تواصلوا معي',
+                contactDesc: 'متاح لتصميم الويب الحر وتطوير الواجهة الأمامية.',
+                sendButton: 'إرسال رسالة',
+                sendAlert: 'راسلني عبر oguzsjef7@gmail.com لبدء مشروعك!',
+                limitationsSub: 'القيود الحالية',
+                limitationsDesc: 'أتخصص في تطوير الواجهة الأمامية وتصميم واجهة المستخدم/تجربة المستخدم. حاليًا، لا أقدم:',
+                limitation1: 'تطوير الخلفية (مثل قواعد البيانات، الخوادم)',
+                limitation2: 'تطوير تطبيقات الهاتف المحمول',
+                limitation3: 'الرسوم المتحركة المعقدة خارج CSS/JavaScript',
+                limitationsNote: 'أعمل على إتقان هذه المهارات قريبًا!',
+                settingsTitle: 'الإعدادات',
+                languageLabel: 'اللغة',
+                closeButton: 'إغلاق'
+            },
+            tr: {
+                headerTitle: 'OguzHan Can',
+                navHome: 'Ana Sayfa',
+                navContact: 'İletişim',
+                navSettings: 'Ayarlar',
+                homeTitle: 'Merhaba!',
+                homeDesc1: 'Ben OguzHan, Norveç Skedsmokorset\'ten 16 yaşında bir web geliştiricisiyim.',
+                homeDesc2: 'HTML, CSS ve JavaScript kullanarak canlı, profesyonel web sitelerinde uzmanım.',
+                homeDesc3: 'Proje başına 40$’a çarpıcı UI/UX tasarımlar için beni işe alın!',
+                hireButton: 'Beni İşe Al',
+                hireAlert: 'Beni işe almak için oguzsjef7@gmail.com adresine e-posta gönder!',
+                contactTitle: 'Bana Ulaşın',
+                contactSub: 'İletişime Geçin',
+                contactDesc: 'Serbest web tasarımı ve ön uç geliştirme için müsaitim.',
+                sendButton: 'Mesaj Gönder',
+                sendAlert: 'Projenize başlamak için oguzsjef7@gmail.com adresine e-posta gönderin!',
+                limitationsSub: 'Mevcut Sınırlamalar',
+                limitationsDesc: 'Ön uç geliştirme ve UI/UX tasarımında uzmanım. Şu anda sunmadığım hizmetler:',
+                limitation1: 'Arka uç geliştirme (ör. veritabanları, sunucular)',
+                limitation2: 'Mobil uygulama geliştirme',
+                limitation3: 'CSS/JavaScript ötesinde karmaşık animasyonlar',
+                limitationsNote: 'Bu becerileri yakında öğreniyorum!',
+                settingsTitle: 'Ayarlar',
+                languageLabel: 'Dil',
+                closeButton: 'Kapat'
+            },
+            no: {
+                headerTitle: 'OguzHan Can',
+                navHome: 'Hjem',
+                navContact: 'Kontakt',
+                navSettings: 'Innstillinger',
+                homeTitle: 'Hei!',
+                homeDesc1: 'Jeg er OguzHan, en 16 år gammel webutvikler fra Skedsmokorset, Norge.',
+                homeDesc2: 'Spesialisert i levende, profesjonelle nettsteder ved bruk av HTML, CSS og JavaScript.',
+                homeDesc3: 'Ansett meg for fantastiske UI/UX-design til $40 per prosjekt!',
+                hireButton: 'Ansett Meg',
+                hireAlert: 'Send meg en e-post på oguzsjef7@gmail.com for å ansette meg!',
+                contactTitle: 'Kontakt Meg',
+                contactSub: 'Ta Kontakt',
+                contactDesc: 'Tilgjengelig for frilans webdesign og frontend-utvikling.',
+                sendButton: 'Send Melding',
+                sendAlert: 'Send en e-post til oguzsjef7@gmail.com for å starte prosjektet ditt!',
+                limitationsSub: 'Nåværende Begrensninger',
+                limitationsDesc: 'Jeg spesialiserer meg på frontend-utvikling og UI/UX-design. For øyeblikket tilbyr jeg ikke:',
+                limitation1: 'Backend-utvikling (f.eks. databaser, servere)',
+                limitation2: 'Mobilapp-utvikling',
+                limitation3: 'Komplekse animasjoner utover CSS/JavaScript',
+                limitationsNote: 'Jobber med å mestre disse ferdighetene snart!',
+                settingsTitle: 'Innstillinger',
+                languageLabel: 'Språk',
+                closeButton: 'Lukk'
+            }
+        };
+
+        let language = localStorage.getItem('language') || 'en';
+
+        function updateTranslations() {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                element.textContent = translations[language][key] || element.textContent;
+            });
+            document.getElementById('languageSelect').value = language;
+        }
+
+        function changeLanguage() {
+            const select = document.getElementById('languageSelect');
+            language = select.value;
+            localStorage.setItem('language', language);
+            updateTranslations();
+            closeModal('settingsModal');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                modal.addEventListener('click', e => {
+                    if (e.target === modal) closeModal(modalId);
+                }, { once: true });
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.remove('active');
+        }
+
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 80; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = Math.random() * 6 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 6}s`;
+                particle.style.animationDuration = `${Math.random() * 4 + 6}s`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        function addInteractionEvents() {
+            document.querySelectorAll('nav.top-bar a, button').forEach(element => {
+                element.addEventListener('touchstart', e => {
+                    e.preventDefault();
+                    element.classList.add('active');
+                    setTimeout(() => element.classList.remove('active'), 300);
+                    element.click();
+                });
+                element.addEventListener('click', () => {
+                    element.classList.add('active');
+                    setTimeout(() => element.classList.remove('active'), 300);
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTranslations();
+            createParticles();
+            addInteractionEvents();
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'block';
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
 </html>

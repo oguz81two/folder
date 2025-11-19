@@ -1,116 +1,97 @@
 const translations = {
     en: {
-        headerTitle: 'OguzHan Can',
-        navHome: 'Home',
-        navContact: 'Contact',
-        navSettings: 'Settings',
-        homeTitle: 'Hello!',
-        homeDesc1: 'I\'m OguzHan, a 16-year-old web developer from Skedsmokorset, Norway.',
-        homeDesc2: 'Specializing in vibrant, professional websites using HTML, CSS, and JavaScript.',
-        homeDesc3: 'Hire me for stunning UI/UX designs at $40 per project!',
-        hireButton: 'Hire Me',
-        hireAlert: 'Email me at oguzsjef7@gmail.com to hire!',
-        contactTitle: 'Contact Me',
+        headerTitle: 'OGUZHAN CAN',
+        navHome: 'Home', navContact: 'Contact', navSettings: 'Settings',
+        homeTitle: 'Welcome',
+        homeDesc1: 'I\'m OguzHan Can — 16 years old, from Norway.',
+        homeDesc2: 'I build fast, modern, pixel-perfect, and 100% halal websites using clean code.',
+        homeDesc3: 'Every project is made with sincerity, precision, and love for the craft — bi-idhnillah.',
+        homePrice: 'Professional websites from only $40 · Quality guaranteed, bi-idhnillah',
+        hireButton: 'Hire Me Now',
+        contactTitle: 'Let\'s Work Together',
         contactSub: 'Get in Touch',
-        contactDesc: 'Available for freelance web design and front-end development.',
-        sendButton: 'Send Message',
-        sendAlert: 'Email me at oguzsjef7@gmail.com to start your project!',
-        limitationsSub: 'Current Limitations',
-        limitationsDesc: 'I specialize in front-end development and UI/UX design. Currently, I don’t offer:',
-        limitation1: 'Backend development (e.g., databases, servers)',
-        limitation2: 'Mobile app development',
-        limitation3: 'Complex animations beyond CSS/JavaScript',
-        limitationsNote: 'Working to master these skills soon!',
-        settingsTitle: 'Settings',
-        languageLabel: 'Language',
-        closeButton: 'Close'
+        contactDesc: 'Available for freelance front-end work · Fast delivery · Halal design only',
+        copyEmail: 'Copy Email', copyPhone: 'Copy Phone',
+        limitationsSub: 'My Focus (Currently)',
+        focus1: 'Clean, responsive front-end development',
+        focus2: 'Modern UI/UX with perfect details',
+        focus3: 'Fast, lightweight, SEO-friendly code',
+        focus4: 'Only halal projects — no haram content',
+        blessing: 'Getting better every day, bi-idhnillah',
+        settingsTitle: 'Settings', languageLabel: 'Language', closeButton: 'Close'
     },
     ar: {
         headerTitle: 'أوغوزهان جان',
-        navHome: 'الرئيسية',
-        navContact: 'اتصل',
-        navSettings: 'الإعدادات',
-        homeTitle: 'مرحبًا!',
-        homeDesc1: 'أنا أوغوزهان، مطور ويب يبلغ من العمر 16 عامًا من سكيدسموكورست، النرويج.',
-        homeDesc2: 'متخصص في تصميم مواقع ويب نابضة بالحياة واحترافية باستخدام HTML وCSS وJavaScript.',
-        homeDesc3: 'استأجرني لتصميمات واجهة مستخدم/تجربة مستخدم مذهلة بـ 40 دولار لكل مشروع!',
-        hireButton: 'استأجرني',
-        hireAlert: 'راسلني عبر البريد الإلكتروني oguzsjef7@gmail.com لتوظيفي!',
-        contactTitle: 'اتصل بي',
+        navHome: 'الرئيسية', navContact: 'تواصل', navSettings: 'الإعدادات',
+        homeTitle: 'أهلاً وسهلاً',
+        homeDesc1: 'أنا أوغوزهان جان، عمري 16 سنة، من النرويج.',
+        homeDesc2: 'أصمم مواقع ويب سريعة، عصرية، مثالية بكسل، وحلال 100% بكود نظيف.',
+        homeDesc3: 'كل مشروع يُصنع بإخلاص ودقة وحب للعمل — بإذن الله.',
+        homePrice: 'مواقع احترافية من 40$ فقط · جودة مضمونة بإذن الله',
+        hireButton: 'تواصل معي الآن',
+        contactTitle: 'لنعمل معًا',
         contactSub: 'تواصلوا معي',
-        contactDesc: 'متاح لتصميم الويب الحر وتطوير الواجهة الأمامية.',
-        sendButton: 'إرسال رسالة',
-        sendAlert: 'راسلني عبر oguzsjef7@gmail.com لبدء مشروعك!',
-        limitationsSub: 'القيود الحالية',
-        limitationsDesc: 'أتخصص في تطوير الواجهة الأمامية وتصميم واجهة المستخدم/تجربة المستخدم. حاليًا، لا أقدم:',
-        limitation1: 'تطوير الخلفية (مثل قواعد البيانات، الخوادم)',
-        limitation2: 'تطوير تطبيقات الهاتف المحمول',
-        limitation3: 'الرسوم المتحركة المعقدة خارج CSS/JavaScript',
-        limitationsNote: 'أعمل على إتقان هذه المهارات قريبًا!',
-        settingsTitle: 'الإعدادات',
-        languageLabel: 'اللغة',
-        closeButton: 'إغلاق'
+        contactDesc: 'متاح للعمل الحر في تطوير الواجهة الأمامية · تسليم سريع · تصميم حلال فقط',
+        copyEmail: 'نسخ الإيميل', copyPhone: 'نسخ رقم الهاتف',
+        limitationsSub: 'تركيزي الحالي',
+        focus1: 'تطوير واجهة أمامية نظيفة ومتجاوبة',
+        focus2: 'تصميم واجهة/تجربة مستخدم عصرية بدقة عالية',
+        focus3: 'كود سريع، خفيف، متوافق مع محركات البحث',
+        focus4: 'مشاريع حلال فقط — لا محتوى حرام',
+        blessing: 'أتحسن كل يوم بإذن الله',
+        settingsTitle: 'الإعدادات', languageLabel: 'اللغة', closeButton: 'إغلاق'
     },
     tr: {
-        headerTitle: 'OguzHan Can',
-        navHome: 'Ana Sayfa',
-        navContact: 'İletişim',
-        navSettings: 'Ayarlar',
-        homeTitle: 'Merhaba!',
-        homeDesc1: 'Ben OguzHan, Norveç Skedsmokorset\'ten 16 yaşında bir web geliştiricisiyim.',
-        homeDesc2: 'HTML, CSS ve JavaScript kullanarak canlı, profesyonel web sitelerinde uzmanım.',
-        homeDesc3: 'Proje başına 40$’a çarpıcı UI/UX tasarımlar için beni işe alın!',
-        hireButton: 'Beni İşe Al',
-        hireAlert: 'Beni işe almak için oguzsjef7@gmail.com adresine e-posta gönder!',
-        contactTitle: 'Bana Ulaşın',
-        contactSub: 'İletişime Geçin',
-        contactDesc: 'Serbest web tasarımı ve ön uç geliştirme için müsaitim.',
-        sendButton: 'Mesaj Gönder',
-        sendAlert: 'Projenize başlamak için oguzsjef7@gmail.com adresine e-posta gönderin!',
-        limitationsSub: 'Mevcut Sınırlamalar',
-        limitationsDesc: 'Ön uç geliştirme ve UI/UX tasarımında uzmanım. Şu anda sunmadığım hizmetler:',
-        limitation1: 'Arka uç geliştirme (ör. veritabanları, sunucular)',
-        limitation2: 'Mobil uygulama geliştirme',
-        limitation3: 'CSS/JavaScript ötesinde karmaşık animasyonlar',
-        limitationsNote: 'Bu becerileri yakında öğreniyorum!',
-        settingsTitle: 'Ayarlar',
-        languageLabel: 'Dil',
-        closeButton: 'Kapat'
+        headerTitle: 'OGUZHAN CAN',
+        navHome: 'Ana Sayfa', navContact: 'İletişim', navSettings: 'Ayarlar',
+        homeTitle: 'Hoş Geldiniz',
+        homeDesc1: 'Ben OguzHan Can — 16 yaşında, Norveç\'ten.',
+        homeDesc2: 'Temiz kodla hızlı, modern, piksel mükemmel ve %100 helal web siteleri yapıyorum.',
+        homeDesc3: 'Her proje samimiyet, titizlik ve işe sevgiyle yapılır — bi-iznillah.',
+        homePrice: 'Sadece 40$’dan profesyonel siteler · Kalite garantili, bi-iznillah',
+        hireButton: 'Hemen İşe Al',
+        contactTitle: 'Birlikte Çalışalım',
+        contactSub: 'İletişime Geç',
+        contactDesc: 'Serbest ön yüz geliştirme için müsaitim · Hızlı teslim · Sadece helal tasarım',
+        copyEmail: 'E-postayı Kopyala', copyPhone: 'Telefonu Kopyala',
+        limitationsSub: 'Şu Anki Odak Noktam',
+        focus1: 'Temiz ve responsive ön yüz geliştirme',
+        focus2: 'Mükemmel detaylarla modern UI/UX',
+        focus3: 'Hızlı, hafif, SEO dostu kod',
+        focus4: 'Sadece helal projeler — haram içerik yok',
+        blessing: 'Her gün daha iyi oluyorum bi-iznillah',
+        settingsTitle: 'Ayarlar', languageLabel: 'Dil', closeButton: 'Kapat'
     },
     no: {
-        headerTitle: 'OguzHan Can',
-        navHome: 'Hjem',
-        navContact: 'Kontakt',
-        navSettings: 'Innstillinger',
-        homeTitle: 'Hei!',
-        homeDesc1: 'Jeg er OguzHan, en 16 år gammel webutvikler fra Skedsmokorset, Norge.',
-        homeDesc2: 'Spesialisert i levende, profesjonelle nettsteder ved bruk av HTML, CSS og JavaScript.',
-        homeDesc3: 'Ansett meg for fantastiske UI/UX-design til $40 per prosjekt!',
-        hireButton: 'Ansett Meg',
-        hireAlert: 'Send meg en e-post på oguzsjef7@gmail.com for å ansette meg!',
-        contactTitle: 'Kontakt Meg',
+        headerTitle: 'OGUZHAN CAN',
+        navHome: 'Hjem', navContact: 'Kontakt', navSettings: 'Innstillinger',
+        homeTitle: 'Velkommen',
+        homeDesc1: 'Jeg er OguzHan Can — 16 år, fra Norge.',
+        homeDesc2: 'Jeg lager raske, moderne, pikselperfekte og 100% halal nettsider med ren kode.',
+        homeDesc3: 'Hvert prosjekt lages med oppriktighet, presisjon og kjærlighet til faget — bi-idnillah.',
+        homePrice: 'Profesjonelle nettsider fra kun $40 · Kvalitet garantert, bi-idnillah',
+        hireButton: 'Ansett Meg Nå',
+        contactTitle: 'La Oss Samarbeide',
         contactSub: 'Ta Kontakt',
-        contactDesc: 'Tilgjengelig for frilans webdesign og frontend-utvikling.',
-        sendButton: 'Send Melding',
-        sendAlert: 'Send en e-post til oguzsjef7@gmail.com for å starte prosjektet ditt!',
-        limitationsSub: 'Nåværende Begrensninger',
-        limitationsDesc: 'Jeg spesialiserer meg på frontend-utvikling og UI/UX-design. For øyeblikket tilbyr jeg ikke:',
-        limitation1: 'Backend-utvikling (f.eks. databaser, servere)',
-        limitation2: 'Mobilapp-utvikling',
-        limitation3: 'Komplekse animasjoner utover CSS/JavaScript',
-        limitationsNote: 'Jobber med å mestre disse ferdighetene snart!',
-        settingsTitle: 'Innstillinger',
-        languageLabel: 'Språk',
-        closeButton: 'Lukk'
+        contactDesc: 'Tilgjengelig for frilans frontend-arbeid · Rask levering · Kun halal design',
+        copyEmail: 'Kopier E-post', copyPhone: 'Kopier Telefon',
+        limitationsSub: 'Mitt Fokus (Nå)',
+        focus1: 'Ren og responsiv frontend-utvikling',
+        focus2: 'Moderne UI/UX med perfekte detaljer',
+        focus3: 'Rask, lett og SEO-vennlig kode',
+        focus4: 'Kun halal prosjekter — ingen haram innhold',
+        blessing: 'Blir bedre hver dag, bi-idnillah',
+        settingsTitle: 'Innstillinger', languageLabel: 'Språk', closeButton: 'Lukk'
     }
 };
 
 let language = localStorage.getItem('language') || 'en';
+let savedScroll = 0;
 
 function updateTranslations() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (translations[language]?.[key]) el.innerHTML = translations[language][key];
+    if (translations[language]?.[key]) el.textContent = translations[language][key];
   });
   document.getElementById('languageSelect').value = language;
 }
@@ -119,60 +100,44 @@ function changeLanguage() {
   language = document.getElementById('languageSelect').value;
   localStorage.setItem('language', language);
   updateTranslations();
-  closeSettings();
 }
 
-function openSettings() { document.getElementById('settingsModal').classList.add('active'); }
-function closeSettings() { document.getElementById('settingsModal').classList.remove('active'); }
-function closeIfOutside(e) { if (e.target === document.getElementById('settingsModal')) closeSettings(); }
+function openSettings() {
+  savedScroll = window.pageYOffset;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${savedScroll}px`;
+  document.body.style.width = '100%';
+  document.getElementById('settingsModal').classList.add('active');
+}
+
+function closeSettings() {
+  document.getElementById('settingsModal').classList.remove('active');
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, savedScroll);
+}
 
 function scrollToTop() { window.scrollTo({top:0, behavior:'smooth'}); }
 function scrollToSection(id) { document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
 
-// Generate all particles and stars
+function copyText(text) {
+  navigator.clipboard.writeText(text);
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-text').textContent = `Copied: ${text}`;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   updateTranslations();
-
-  // Stars
-  ['starfield-1', 'starfield-2'].forEach(id => {
-    const field = document.getElementById(id);
-    for(let i=0; i<300; i++) {
-      const s = document.createElement('div');
-      s.className = 'star';
-      s.style.left = Math.random()*100 + '%';
-      s.style.top = Math.random()*100 + '%';
-      s.style.width = s.style.height = Math.random()*3 + 'px';
-      field.appendChild(s);
-    }
-  });
-
-  // Particles
-  ['particles-1', 'particles-2', 'particles-3'].forEach(id => {
-    const container = document.getElementById(id);
-    for(let i=0; i<200; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      p.style.left = Math.random()*100 + '%';
-      p.style.animationDelay = Math.random()*30 + 's';
-      container.appendChild(p);
-    }
-  });
-
-  // Floating crystals
-  const crystals = document.getElementById('floating-crystals');
-  for(let i=0; i<30; i++) {
-    const c = document.createElement('div');
-    c.className = 'crystal';
-    c.style.left = Math.random()*100 + '%';
-    c.style.animationDelay = Math.random()*25 + 's';
-    crystals.appendChild(c);
+  const p = document.getElementById('particles');
+  for(let i = 0; i < 100; i++) {
+    const el = document.createElement('div');
+    el.className = 'particle';
+    el.style.left = Math.random() * 100 + '%';
+    el.style.animationDelay = Math.random() * 18 + 's';
+    el.style.width = el.style.height = Math.random() * 5 + 2 + 'px';
+    p.appendChild(el);
   }
-
-  // Fade in on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });

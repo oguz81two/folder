@@ -108,50 +108,71 @@ const translations = {
 let language = localStorage.getItem('language') || 'en';
 
 function updateTranslations() {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[language][key]) el.innerHTML = translations[language][key];
-    });
-    document.getElementById('languageSelect').value = language;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[language]?.[key]) el.innerHTML = translations[language][key];
+  });
+  document.getElementById('languageSelect').value = language;
 }
 
 function changeLanguage() {
-    language = document.getElementById('languageSelect').value;
-    localStorage.setItem('language', language);
-    updateTranslations();
+  language = document.getElementById('languageSelect').value;
+  localStorage.setItem('language', language);
+  updateTranslations();
+  closeSettings();
 }
 
-function openSettings() {
-    document.getElementById('settingsModal').classList.add('active');
-}
-
-function closeModalOutside(e) {
-    if (e.target.classList.contains('modal')) {
-        e.target.classList.remove('active');
-    }
-}
+function openSettings() { document.getElementById('settingsModal').classList.add('active'); }
+function closeSettings() { document.getElementById('settingsModal').classList.remove('active'); }
+function closeIfOutside(e) { if (e.target === document.getElementById('settingsModal')) closeSettings(); }
 
 function scrollToTop() { window.scrollTo({top:0, behavior:'smooth'}); }
 function scrollToSection(id) { document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
 
-// Create 200+ particles
-function createParticles() {
-    const containers = ['particles', 'particles-2'];
-    containers.forEach(id => {
-        const container = document.getElementById(id);
-        for(let i = 0; i < 100; i++) {
-            const p = document.createElement('div');
-            p.className = 'particle';
-            p.style.width = p.style.height = Math.random()*6+2 + 'px';
-            p.style.left = Math.random()*100 + '%';
-            p.style.animationDelay = Math.random()*20 + 's';
-            p.style.animationDuration = Math.random()*20 + 20 + 's';
-            container.appendChild(p);
-        }
-    });
-}
-
+// Generate all particles and stars
 document.addEventListener('DOMContentLoaded', () => {
-    updateTranslations();
-    createParticles();
+  updateTranslations();
+
+  // Stars
+  ['starfield-1', 'starfield-2'].forEach(id => {
+    const field = document.getElementById(id);
+    for(let i=0; i<300; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.left = Math.random()*100 + '%';
+      s.style.top = Math.random()*100 + '%';
+      s.style.width = s.style.height = Math.random()*3 + 'px';
+      field.appendChild(s);
+    }
+  });
+
+  // Particles
+  ['particles-1', 'particles-2', 'particles-3'].forEach(id => {
+    const container = document.getElementById(id);
+    for(let i=0; i<200; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random()*100 + '%';
+      p.style.animationDelay = Math.random()*30 + 's';
+      container.appendChild(p);
+    }
+  });
+
+  // Floating crystals
+  const crystals = document.getElementById('floating-crystals');
+  for(let i=0; i<30; i++) {
+    const c = document.createElement('div');
+    c.className = 'crystal';
+    c.style.left = Math.random()*100 + '%';
+    c.style.animationDelay = Math.random()*25 + 's';
+    crystals.appendChild(c);
+  }
+
+  // Fade in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });

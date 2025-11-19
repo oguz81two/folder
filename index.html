@@ -1,134 +1,90 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#000428">
-  <title>OguzHan Can — Legendary Developer</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&family=Poppins:wght@100;300;500;700;900&family=Orbitron:wght@700;900&family=Exo+2:wght@900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OguzHan Can</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- 15 LAYERS OF COSMIC BEAUTY -->
-  <div id="cosmic-bg"></div>
-  <div id="nebula-1"></div>
-  <div id="nebula-2"></div>
-  <div id="aurora-glow"></div>
-  <div id="starfield-1"></div>
-  <div id="starfield-2"></div>
-  <div id="particles-1"></div>
-  <div id="particles-2"></div>
-  <div id="particles-3"></div>
-  <div id="floating-crystals"></div>
-  <div id="grid-lines"></div>
-  <div id="vignette"></div>
-  <div id="holographic-grid"></div>
-  <div id="pulse-ring"></div>
-  <div id="cosmic-dust"></div>
+  <!-- Background -->
+  <div id="bg"></div>
+  <div id="particles"></div>
 
-  <!-- EPIC HOLOGRAPHIC HEADER -->
-  <header class="header-master">
-    <div class="header-scanlines"></div>
-    <div class="header-glow"></div>
-    <div class="header-orb"></div>
-    <h1 class="name-epic" data-i18n="headerTitle">OGUZHAN CAN</h1>
-    <p class="subtitle-epic">16 • Norway • Alhamdulillāh for Every Line of Code</p>
+  <!-- Hero Title (auto responsive) -->
+  <header class="hero">
+    <h1 class="name" data-i18n="headerTitle">OGUZHAN CAN</h1>
   </header>
 
-  <!-- NEON CRYSTAL NAVIGATION -->
-  <nav class="nav-neon">
-    <button class="nav-crystal" onclick="scrollToTop()">
-      <i class="fas fa-home"></i>
-      <span data-i18n="navHome">Home</span>
-      <div class="ripple"></div>
-      <div class="crystal-glow"></div>
-    </button>
-    <button class="nav-crystal" onclick="scrollToSection('contact')">
-      <i class="fas fa-envelope"></i>
-      <span data-i18n="navContact">Contact</span>
-      <div class="ripple"></div>
-      <div class="crystal-glow"></div>
-    </button>
-    <button class="nav-crystal" onclick="openSettings()">
-      <i class="fas fa-cog"></i>
-      <span data-i18n="navSettings">Settings</span>
-      <div class="ripple"></div>
-      <div class="crystal-glow"></div>
-    </button>
+  <!-- Fixed Menu Under Title -->
+  <nav class="fixed-menu">
+    <a href="#home" onclick="scrollToTop()" data-i18n="navHome">Home</a>
+    <a href="#contact" onclick="scrollToSection('contact')" data-i18n="navContact">Contact</a>
+    <a href="#" onclick="openSettings()" data-i18n="navSettings">Settings</a>
   </nav>
 
-  <!-- HERO SECTION — PURE BEAUTY -->
-  <section id="home" class="hero fade-in">
-    <div class="crystal-palace">
-      <div class="border-animated"></div>
-      <div class="glow-layer"></div>
-      <div class="holo-border"></div>
-      <div class="content">
-        <h1 class="title-legend" data-i18n="homeTitle">Hello, World!</h1>
-        <p class="desc" data-i18n="homeDesc1">I am OguzHan Can — 16 years old from Skedsmokorset, Norway.</p>
-        <p class="desc" data-i18n="homeDesc2">I build next-generation, halal, breathtaking websites.</p>
-        <p class="price-legend" data-i18n="homeDesc3">Hire me for only $40 — in shāʾ Allāh, you will be amazed!</p>
-        <button class="btn-legend" data-i18n="hireButton">
-          <span>Hire Me Now</span>
-          <div class="shine"></div>
-          <div class="pulse"></div>
+  <!-- Main Content -->
+  <main class="container">
+    <section id="home" class="card">
+      <h2 data-i18n="homeTitle">As-salāmu ʿalaikum</h2>
+      <p data-i18n="homeDesc1">I'm OguzHan, a 16-year-old web developer from Skedsmokorset, Norway.</p>
+      <p data-i18n="homeDesc2">Specializing in vibrant, professional websites using HTML, CSS, and JavaScript.</p>
+      <p class="price" data-i18n="homeDesc3">Hire me for stunning UI/UX designs at $40 per project!</p>
+      <button class="btn" onclick="copyText('oguzsjef7@gmail.com')" data-i18n="hireButton">Hire Me</button>
+    </section>
+
+    <section id="contact" class="card">
+      <h2 data-i18n="contactTitle">Contact Me</h2>
+      <h3>Get in Touch</h3>
+
+      <div class="copy-box">
+        <span>oguzsjef7@gmail.com</span>
+        <button class="copy-btn" onclick="copyText('oguzsjef7@gmail.com')">
+          <i class="fas fa-copy"></i> Copy Email
         </button>
       </div>
-    </div>
-  </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="contact fade-in">
-    <div class="crystal-palace">
-      <div class="border-animated"></div>
-      <div class="glow-layer"></div>
-      <div class="holo-border"></div>
-      <div class="content">
-        <h1 class="title-legend" data-i18n="contactTitle">Contact Me</h1>
-        <h2 class="sub-legend" data-i18n="contactSub">Let’s Build Together</h2>
-        <div class="contact-grid">
-          <a href="mailto:oguzsjef7@gmail.com" class="contact-item">
-            <i class="fas fa-envelope"></i> oguzsjef7@gmail.com
-          </a>
-          <a href="tel:+4741203717" class="contact-item">
-            <i class="fas fa-phone"></i> +47 412 03 717
-          </a>
-        </div>
-        <p class="desc" data-i18n="contactDesc">Available for clean, halal front-end projects.</p>
-        <button class="btn-legend" data-i18n="sendButton">
-          <span>Send Message</span>
-          <div class="shine"></div>
-          <div class="pulse"></div>
+      <div class="copy-box">
+        <span>+47 412 03 717</span>
+        <button class="copy-btn" onclick="copyText('+4741203717')">
+          <i class="fas fa-copy"></i> Copy Phone
         </button>
-
-        <h2 class="sub-legend mt-60" data-i18n="limitationsSub">My Skills</h2>
-        <ul class="skills-list">
-          <li data-i18n="limitation1">Pure HTML, CSS, JavaScript</li>
-          <li data-i18n="limitation2">No backend</li>
-          <li data-i18n="limitation3">Only halal animations</li>
-        </ul>
-        <p class="blessing" data-i18n="limitationsNote">Improving daily, in shāʾ Allāh.</p>
       </div>
-    </div>
-  </section>
 
-  <!-- SETTINGS MODAL — FLAWLESS -->
-  <div id="settingsModal" class="modal-epic" onclick="closeIfOutside(event)">
-    <div class="modal-crystal">
-      <button class="close-epic" onclick="closeSettings()">×</button>
-      <h2 class="modal-title" data-i18n="settingsTitle">Settings</h2>
-      <label class="modal-label" data-i18n="languageLabel">Language</label>
-      <select id="languageSelect" onchange="changeLanguage()" class="select-epic">
+      <p data-i18n="contactDesc">Available for freelance web design and front-end development.</p>
+
+      <h3 data-i18n="limitationsSub">Current Limitations</h3>
+      <ul>
+        <li data-i18n="limitation1">Backend development (e.g., databases, servers)</li>
+        <li data-i18n="limitation2">Mobile app development</li>
+        <li data-i18n="limitation3">Complex animations beyond CSS/JavaScript</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Original Clean & Beautiful Settings Modal -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeSettings()">×</span>
+      <h2 data-i18n="settingsTitle">Settings</h2>
+      <label data-i18n="languageLabel">Language</label>
+      <select id="languageSelect" onchange="changeLanguage()">
         <option value="en">English</option>
         <option value="ar">العربية</option>
         <option value="tr">Türkçe</option>
         <option value="no">Norsk</option>
       </select>
-      <button class="btn-legend small" onclick="closeSettings()" data-i18n="closeButton">Close</button>
+      <button class="modal-close-btn" onclick="closeSettings()" data-i18n="closeButton">Close</button>
     </div>
+  </div>
+
+  <!-- Beautiful Toast Notification -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toast-text"></span>
   </div>
 
   <script src="script.js"></script>

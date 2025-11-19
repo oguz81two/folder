@@ -110,7 +110,7 @@ let language = localStorage.getItem('language') || 'en';
 function updateTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        el.textContent = translations[language][key] || el.textContent;
+        if (translations[language][key]) el.innerHTML = translations[language][key];
     });
     document.getElementById('languageSelect').value = language;
 }
@@ -119,44 +119,39 @@ function changeLanguage() {
     language = document.getElementById('languageSelect').value;
     localStorage.setItem('language', language);
     updateTranslations();
-    closeModal('settingsModal');
 }
 
-function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
-
-function showModal(id) {
-    const modal = document.getElementById(id);
-    modal.classList.add('active');
-    modal.onclick = e => { if (e.target === modal) closeModal(id); };
+function openSettings() {
+    document.getElementById('settingsModal').classList.add('active');
 }
-function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-function createParticles() {
-    const container = document.getElementById('particles');
-    for (let i = 0; i < 100; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        const size = Math.random() * 7 + 3;
-        p.style.width = p.style.height = size + 'px';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.top = Math.random() * 100 + '%';
-        p.style.animationDelay = Math.random() * 12 + 's';
-        p.style.animationDuration = (Math.random() * 10 + 10) + 's';
-        container.appendChild(p);
+function closeModalOutside(e) {
+    if (e.target.classList.contains('modal')) {
+        e.target.classList.remove('active');
     }
+}
+
+function scrollToTop() { window.scrollTo({top:0, behavior:'smooth'}); }
+function scrollToSection(id) { document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+
+// Create 200+ particles
+function createParticles() {
+    const containers = ['particles', 'particles-2'];
+    containers.forEach(id => {
+        const container = document.getElementById(id);
+        for(let i = 0; i < 100; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.width = p.style.height = Math.random()*6+2 + 'px';
+            p.style.left = Math.random()*100 + '%';
+            p.style.animationDelay = Math.random()*20 + 's';
+            p.style.animationDuration = Math.random()*20 + 20 + 's';
+            container.appendChild(p);
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     updateTranslations();
     createParticles();
-
-    // Trigger fade-in animations when in viewport
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.style.opacity = '1';
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });
